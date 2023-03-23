@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="/UTF-8">
+	<title>API_SVC_IRIS</title>
+	<style>
+		body {
+		  background-color: royalblue;
+		}
+
+		h1, h3 {
+		  color: white;
+		  text-align: center;
+		}
+
+		div {
+		  color: white;
+		  text-align: center;
+		  font-size: 28px
+		}
+
+		p {
+		  color: white;
+		  text-align: left;
+		  text-indent: 215px;
+		  font-family: verdana;
+		  font-size: 20px;
+		}
+
+		input {
+		  color: black;
+		  text-align: center;
+		  font-family: verdana;
+		  font-size: 16px;
+		}
+
+		button {
+		  background-color: black;
+		  color: white;
+		  font-family: verdana;
+		  font-size: 20px;
+		}
+
+	</style>
+</head>
+<body>
+	<div>
+		<h1>Predict Plants Species</h1>
+		<h3>Based on sepal length and width, and petal length and width.</h3>
+		<br>
+		<p>Please enter the details of the plant:</p>
+		<!-- Main input for receiving query to our ML -->
+		<form action="{{ url_for('predict') }}" method="POST">
+			<input type="text" name="sepal_lenght" placeholder="Sepal Lenght" required="required"/>
+			<input type="text" name="sepal_width" placeholder="Sepal Width" required="required"/>
+			<input type="text" name="petal_length" placeholder="Petal Length" required="required"/>
+			<input type="text" name="petal_width" placeholder="Petal Width" required="required"/>
+			<br>
+			<br>
+		    <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+		</form>
+		<br>
+		<br>
+		<div>{{ prediction_text }}</div>
+		
+	</div>
+</body>
+</html>
